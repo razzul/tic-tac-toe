@@ -47,8 +47,6 @@ function store_data(name, sign) {
         DATA.O.push(name);
         DATA.O.sort();
     }
-    
-    console.log(DATA);
 }
 
 function get_valid(arr, sign) {
@@ -90,9 +88,9 @@ function drawCross(sign) {
         ["piece1x0", "piece1x1", "piece1x2"], // 345
         ["piece0x1", "piece1x1", "piece2x1"], // 147
         ["piece0x0", "piece1x0", "piece2x0"], // 036
-        ["piece0x2", "piece1x2", "piece2x2"], // 678
+        ["piece2x0", "piece2x1", "piece2x2"], // 258
         ["piece0x0", "piece0x1", "piece0x2"], // 012
-        ["piece2x0", "piece2x1", "piece2x2"]  // 258
+        ["piece0x2", "piece1x2", "piece2x2"]  // 678
     ];
 
     for (var i = 0; i < combo.length; i++) {
@@ -102,7 +100,10 @@ function drawCross(sign) {
     
     
     line = combo.indexOfForArrays(selected);
+    draw_match_line(line);
+}
 
+function draw_match_line(line) {
     var graphics = game.add.graphics(0, 0);
     graphics.lineStyle(1, 0xFFFFFF, BLOCK_WIDTH);
     graphics.beginFill(0xFFFFFF, 1);
